@@ -44,9 +44,8 @@ export default function HeroSection() {
         {slides.map((slide, idx) => (
           <div
             key={idx}
-            className={`absolute inset-0 w-full h-full transition-opacity duration-1000 ease-in-out ${
-              idx === current ? "opacity-100 z-10" : "opacity-0 z-0"
-            }`}
+            className={`absolute inset-0 w-full h-full transition-opacity duration-1000 ease-in-out ${idx === current ? "opacity-100 z-10" : "opacity-0 z-0"
+              }`}
           >
             {/* Background Image */}
             <div
@@ -59,10 +58,10 @@ export default function HeroSection() {
             {/* Slide Content */}
             <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center z-20">
               <div className="max-w-3xl space-y-5 md:space-y-6">
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-brand-teal/40 bg-brand-teal/10 text-brand-teal text-xs font-bold uppercase tracking-wider">
+                {/* <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-brand-teal/40 bg-brand-teal/10 text-brand-teal text-xs font-bold uppercase tracking-wider">
                   <span className="w-1.5 h-1.5 rounded-full bg-brand-teal animate-ping"></span>
                   {slide.badge}
-                </div>
+                </div> */}
                 <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight font-sans">
                   {slide.title}
                 </h1>
@@ -112,11 +111,10 @@ export default function HeroSection() {
           <button
             key={idx}
             onClick={() => setCurrent(idx)}
-            className={`w-3.5 h-3.5 rounded-full border transition-all ${
-              idx === current
-                ? "bg-brand-orange border-brand-orange scale-110"
-                : "bg-slate-900/60 border-slate-600 hover:border-slate-400"
-            }`}
+            className={`w-3.5 h-3.5 rounded-full border transition-all ${idx === current
+              ? "bg-brand-orange border-brand-orange scale-110"
+              : "bg-slate-900/60 border-slate-600 hover:border-slate-400"
+              }`}
             aria-label={`Go to slide ${idx + 1}`}
           />
         ))}

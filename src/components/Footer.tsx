@@ -39,19 +39,19 @@ export default function Footer() {
             <ul className="space-y-2 text-sm">
               <li className="flex items-center gap-2">
                 <span className="text-xs">▪</span>
-                <Link href="/" className="hover:text-amber-300 transition-colors">
+                <Link href="/" className="hover:text-slate-700 transition-colors">
                   Home
                 </Link>
               </li>
               <li className="flex items-center gap-2">
                 <span className="text-xs">▪</span>
-                <Link href="/" className="hover:text-amber-300 transition-colors">
+                <Link href="/" className="hover:text-slate-700 transition-colors">
                   About Us
                 </Link>
               </li>
               <li className="flex items-center gap-2">
                 <span className="text-xs">▪</span>
-                <Link href="/contact" className="hover:text-amber-300 transition-colors">
+                <Link href="/contact" className="hover:text-slate-700 transition-colors">
                   Contact Us
                 </Link>
               </li>
@@ -65,17 +65,17 @@ export default function Footer() {
             </h3>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link href="#" className="hover:text-amber-300 transition-colors">
+                <Link href="#" className="hover:text-slate-700 transition-colors">
                   Privacy Policy
                 </Link>
               </li>
               <li>
-                <Link href="#" className="hover:text-amber-300 transition-colors">
+                <Link href="#" className="hover:text-slate-700 transition-colors">
                   Terms & Conditions
                 </Link>
               </li>
               <li>
-                <Link href="#" className="hover:text-amber-300 transition-colors">
+                <Link href="#" className="hover:text-slate-700 transition-colors">
                   Refund policy
                 </Link>
               </li>
@@ -88,8 +88,8 @@ export default function Footer() {
               CONTACT US
             </h3>
             <div className="flex items-center gap-3 text-sm">
-              <Mail className="h-5 w-5 text-white shrink-0" />
-              <a href="mailto:kiaanatrading@gmail.com" className="hover:text-amber-300 transition-colors">
+              <Mail className="h-5 w-5 text-black shrink-0" />
+              <a href="mailto:kiaanatrading@gmail.com" className="hover:text-slate-700 transition-colors">
                 kiaanatrading@gmail.com
               </a>
             </div>
@@ -100,21 +100,21 @@ export default function Footer() {
                 href="https://www.linkedin.com/in/ramaraju-umadevi-09b6331b8/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-white hover:text-amber-300 hover:border-amber-300 transition-colors p-2 rounded-full border border-white/60 flex items-center justify-center"
+                className="text-black hover:text-slate-700 hover:border-slate-700 transition-colors p-2 rounded-full border border-black/60 flex items-center justify-center"
                 title="LinkedIn"
               >
                 <Linkedin className="h-4 w-4" />
               </a>
               <a
                 href="#"
-                className="text-white hover:text-amber-300 hover:border-amber-300 transition-colors p-2 rounded-full border border-white/60 flex items-center justify-center"
+                className="text-black hover:text-slate-700 hover:border-slate-700 transition-colors p-2 rounded-full border border-black/60 flex items-center justify-center"
                 title="YouTube"
               >
                 <Youtube className="h-4 w-4" />
               </a>
               <a
                 href="#"
-                className="text-white hover:text-amber-300 hover:border-amber-300 transition-colors p-2 rounded-full border border-white/60 flex items-center justify-center"
+                className="text-black hover:text-slate-700 hover:border-slate-700 transition-colors p-2 rounded-full border border-black/60 flex items-center justify-center"
                 title="Instagram"
               >
                 <Instagram className="h-4 w-4" />

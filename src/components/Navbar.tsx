@@ -42,9 +42,9 @@ export default function Navbar() {
                 <Link
                   key={item.name}
                   href={item.href}
-                  className={`px-4 py-2 rounded-md text-sm font-bold tracking-wider transition-all duration-200 ${isActive(item.href)
-                    ? "text-brand-orange bg-brand-orange/5"
-                    : "text-slate-700 hover:text-brand-teal hover:bg-slate-50"
+                  className={`relative px-4 py-2 text-sm font-bold tracking-wider transition-all duration-200 ${isActive(item.href)
+                    ? "text-black after:absolute after:bottom-0 after:left-1/2 after:-translate-x-1/2 after:h-[2px] after:w-1/2 after:bg-black"
+                    : "text-slate-700 hover:text-black hover:bg-slate-50 rounded-md"
                     }`}
                 >
                   {item.name}
@@ -56,7 +56,7 @@ export default function Navbar() {
             <div className="md:hidden flex items-center">
               <button
                 onClick={() => setIsOpen(!isOpen)}
-                className="inline-flex items-center justify-center p-2 rounded-md text-slate-500 hover:text-brand-teal hover:bg-slate-50 focus:outline-none"
+                className="inline-flex items-center justify-center p-2 rounded-md text-slate-500 hover:text-black hover:bg-slate-50 focus:outline-none"
               >
                 {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
               </button>
@@ -73,9 +73,9 @@ export default function Navbar() {
               key={item.name}
               href={item.href}
               onClick={() => setIsOpen(false)}
-              className={`block px-3 py-2.5 rounded-md text-base font-bold tracking-wide transition-all ${isActive(item.href)
-                ? "text-brand-orange bg-brand-orange/5"
-                : "text-slate-700 hover:text-brand-teal hover:bg-slate-50"
+              className={`block px-3 py-2.5 text-base font-bold tracking-wide transition-all ${isActive(item.href)
+                ? "text-black bg-slate-50 border-l-4 border-black pl-2"
+                : "text-slate-700 hover:text-black hover:bg-slate-50 rounded-md"
                 }`}
             >
               {item.name}

@@ -28,7 +28,7 @@ export default function RoadmapSection() {
               </p>
             </div>
           </div>
-          
+
           {/* Goal 2 */}
           <div className="bg-white p-6 rounded-2xl border border-slate-200 hover:border-brand-teal/30 hover:shadow-md transition-all duration-300 shadow-sm space-y-3 flex flex-col justify-between">
             <div className="space-y-3">
