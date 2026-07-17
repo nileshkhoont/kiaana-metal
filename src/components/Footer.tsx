@@ -9,7 +9,7 @@ export default function Footer() {
     <footer className="bg-amber-300/20   text-black mt-auto">
       {/* Upper Footer */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 items-start">
+        <div className="grid grid-cols-1 md:grid-cols-3  gap-8 items-start">
 
           {/* Column 1: About Company */}
           <div className="space-y-4">
@@ -43,12 +43,12 @@ export default function Footer() {
                   Home
                 </Link>
               </li>
-              <li className="flex items-center gap-2">
+              {/* <li className="flex items-center gap-2">
                 <span className="text-xs">▪</span>
                 <Link href="/" className="hover:text-slate-700 transition-colors">
                   About Us
                 </Link>
-              </li>
+              </li> */}
               <li className="flex items-center gap-2">
                 <span className="text-xs">▪</span>
                 <Link href="/contact" className="hover:text-slate-700 transition-colors">
@@ -59,7 +59,7 @@ export default function Footer() {
           </div>
 
           {/* Column 3: Useful Links */}
-          <div className="space-y-4  pt-1">
+          {/* <div className="space-y-4  pt-1">
             <h3 className="text-sm font-bold text- tracking-wider uppercase border-b-2 border-cyan-100/50 pb-1 inline-block">
               USEFUL LINKS
             </h3>
@@ -80,7 +80,7 @@ export default function Footer() {
                 </Link>
               </li>
             </ul>
-          </div>
+          </div> */}
 
           {/* Column 4: Contact Us */}
           <div className="space-y-4  pt-1">
