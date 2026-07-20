@@ -9,7 +9,7 @@ export default function Footer() {
     <footer className="bg-amber-300/20  text-black mt-auto">
       {/* Upper Footer */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
-        <div className="grid grid-cols-1 md:grid-cols-3  gap-8 items-start">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
 
           {/* Column 1: About Company */}
           <div className="space-y-4">
@@ -32,7 +32,7 @@ export default function Footer() {
           </div>
 
           {/* Column 2: Website Links */}
-          <div className="space-y-4 pt-1">
+          <div className="space-y-4 border-t border-black/10 md:border-t-0 pt-6 md:pt-1">
             <h3 className="text-sm font-bold text- tracking-wider uppercase border-b-2 border-brand-teal pb-1  inline-block">
               WEBSITE LINKS
             </h3>
@@ -89,7 +89,7 @@ export default function Footer() {
           </div> */}
 
           {/* Column 4: Contact Us */}
-          <div className="space-y-4  pt-1">
+          <div className="space-y-4 border-t border-black/10 md:border-t-0 pt-6 md:pt-1">
             <h3 className="text-sm font-bold text- tracking-wider uppercase border-b-2 border-brand-teal pb-1 inline-block">
               CONTACT US
             </h3>
@@ -97,7 +97,7 @@ export default function Footer() {
               <div className="flex items-start gap-3 text-sm">
                 <MapPin className="h-5 w-5 text-black shrink-0 mt-0.5" />
                 <span className="text-black leading-relaxed">
-                  19 Broadacre Dr, Kitchener,<br />ON N3A 3E4
+                  19 Broadacre Dr, Kitchener,<br />ON N2R 0S6
                 </span>
               </div>
               <div className="flex items-center gap-3 text-sm">
