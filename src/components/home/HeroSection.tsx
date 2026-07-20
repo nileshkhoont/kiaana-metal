@@ -2,18 +2,19 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 
 export default function HeroSection() {
   const slides = [
     {
-      image: "https://lohaa.co.in/assets/images/banner_img_01.png",
+      image: "/hero_metal_trading.png",
       badge: "Global Import & Export Partner",
       title: "OFFERING EFFICIENT METAL TRADING SERVICES",
       description: "Upgrade your metal trading experience with Kiaana Metal Trading Inc. Access a reliable, transparent, and globally-connected range of high-grade industrial metals.",
     },
     {
-      image: "https://lohaa.co.in/assets/images/slide1.jpg",
+      image: "/hero_scrap_metal.png",
       badge: "Sustainable Trade Objectives",
       title: "REDEFINING FERROUS METALS & SCRAP TRADING",
       description: "Setting high benchmarks in quality assurance and sustainable operations across Canada and international markets.",
@@ -38,7 +39,7 @@ export default function HeroSection() {
   };
 
   return (
-    <section className="relative w-full overflow-hidden bg-slate-900 border-b border-slate-200 h-[500px] md:h-[600px] text-white">
+    <section className="relative w-full overflow-hidden bg-slate-900 border-b border-slate-200 h-[calc(100dvh-80px)] md:h-[600px] text-white">
       {/* Slides Container */}
       <div className="relative w-full h-full">
         {slides.map((slide, idx) => (
@@ -48,10 +49,16 @@ export default function HeroSection() {
               }`}
           >
             {/* Background Image */}
-            <div
-              className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-transform duration-10000 transform scale-105"
-              style={{ backgroundImage: `url(${slide.image})` }}
-            />
+            <div className="absolute inset-0 overflow-hidden">
+              <Image
+                src={slide.image}
+                alt={slide.title}
+                fill
+                priority={idx === 0}
+                sizes="100vw"
+                className="object-cover object-center transition-transform duration-10000 transform scale-105"
+              />
+            </div>
             {/* Dark Overlay for readability */}
             <div className="absolute inset-0 bg-slate-950/60" />
 

@@ -5,9 +5,9 @@ export const contactData = {
     street: "19 Broadacre Dr",
     city: "Kitchener",
     province: "ON",
-    postalCode: "N3A 3E4",
+    postalCode: "N2R 0S6",
     country: "Canada",
-    full: "19 Broadacre Dr, Kitchener, ON N3A 3E4, Canada",
+    full: "19 Broadacre Dr, Kitchener, ON N2R 0S6, Canada",
   },
   phone: {
     display: "+1 647 562 0213",
