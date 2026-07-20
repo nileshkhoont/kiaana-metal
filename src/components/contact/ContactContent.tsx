@@ -8,9 +8,9 @@ export default function ContactContent() {
   const router = useRouter();
 
   // Connect to Formspree using the client-accessible environment key
-  const [state, handleSubmit] = useForm(
-    process.env.NEXT_PUBLIC_FORMSPREE_KEY || "",
-  );
+  // Fallback to a placeholder during build/prerender to prevent build errors
+  const formKey = process.env.NEXT_PUBLIC_FORMSPREE_KEY || "missing-key";
+  const [state, handleSubmit] = useForm(formKey);
 
   // Redirect to custom thanks page upon successful submission
   useEffect(() => {
@@ -18,6 +18,16 @@ export default function ContactContent() {
       router.push("/thanks");
     }
   }, [state.succeeded, router]);
+
+  // Intercept submit to prevent submission and warn if Formspree key is missing
+  const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    if (!process.env.NEXT_PUBLIC_FORMSPREE_KEY) {
+      e.preventDefault();
+      alert("Formspree form key is not configured. Please set NEXT_PUBLIC_FORMSPREE_KEY in your environment variables.");
+      return;
+    }
+    handleSubmit(e);
+  };
 
   return (
     <div className="w-full bg-slate-50 text-slate-800 font-sans overflow-hidden">
@@ -55,7 +65,7 @@ export default function ContactContent() {
             </p>
           </div>
 
-          <form onSubmit={handleSubmit} className="space-y-8">
+          <form onSubmit={handleFormSubmit} className="space-y-8">
 
             {/* Name fields */}
             <div className="space-y-2">
