@@ -2,11 +2,11 @@
 
 import React from "react"; // Triggering language service re-parse
 import Link from "next/link";
-import { Mail, Linkedin, Youtube, Instagram } from "lucide-react";
+import { Mail, Linkedin, Youtube, Instagram, Phone, MapPin } from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer className="bg-amber-300/20   text-black mt-auto">
+    <footer className="bg-amber-300/20  text-black mt-auto">
       {/* Upper Footer */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
         <div className="grid grid-cols-1 md:grid-cols-3  gap-8 items-start">
@@ -33,7 +33,7 @@ export default function Footer() {
 
           {/* Column 2: Website Links */}
           <div className="space-y-4 pt-1">
-            <h3 className="text-sm font-bold text- tracking-wider uppercase border-b-2 border-cyan-100/50 pb-1  inline-block">
+            <h3 className="text-sm font-bold text- tracking-wider uppercase border-b-2 border-brand-teal pb-1  inline-block">
               WEBSITE LINKS
             </h3>
             <ul className="space-y-2 text-sm">
@@ -43,12 +43,18 @@ export default function Footer() {
                   Home
                 </Link>
               </li>
-              {/* <li className="flex items-center gap-2">
+              <li className="flex items-center gap-2">
                 <span className="text-xs">▪</span>
-                <Link href="/" className="hover:text-slate-700 transition-colors">
+                <Link href="/about" className="hover:text-slate-700 transition-colors">
                   About Us
                 </Link>
-              </li> */}
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="text-xs">▪</span>
+                <Link href="/services" className="hover:text-slate-700 transition-colors">
+                  Services
+                </Link>
+              </li>
               <li className="flex items-center gap-2">
                 <span className="text-xs">▪</span>
                 <Link href="/contact" className="hover:text-slate-700 transition-colors">
@@ -60,7 +66,7 @@ export default function Footer() {
 
           {/* Column 3: Useful Links */}
           {/* <div className="space-y-4  pt-1">
-            <h3 className="text-sm font-bold text- tracking-wider uppercase border-b-2 border-cyan-100/50 pb-1 inline-block">
+            <h3 className="text-sm font-bold text- tracking-wider uppercase border-b-2 border-brand-teal pb-1 inline-block">
               USEFUL LINKS
             </h3>
             <ul className="space-y-2 text-sm">
@@ -84,20 +90,35 @@ export default function Footer() {
 
           {/* Column 4: Contact Us */}
           <div className="space-y-4  pt-1">
-            <h3 className="text-sm font-bold text- tracking-wider uppercase border-b-2 border-cyan-100/50 pb-1 inline-block">
+            <h3 className="text-sm font-bold text- tracking-wider uppercase border-b-2 border-brand-teal pb-1 inline-block">
               CONTACT US
             </h3>
-            <div className="flex items-center gap-3 text-sm">
-              <Mail className="h-5 w-5 text-black shrink-0" />
-              <a href="mailto:kiaanatrading@gmail.com" className="hover:text-slate-700 transition-colors">
-                kiaanatrading@gmail.com
-              </a>
+            <div className="space-y-3">
+              <div className="flex items-start gap-3 text-sm">
+                <MapPin className="h-5 w-5 text-black shrink-0 mt-0.5" />
+                <span className="text-black leading-relaxed">
+                  19 Broadacre Dr, Kitchener,<br />ON N3A 3E4
+                </span>
+              </div>
+              <div className="flex items-center gap-3 text-sm">
+                <Phone className="h-5 w-5 text-black shrink-0" />
+                <a href="tel:+16475620213" className="hover:text-slate-700 transition-colors">
+                  +1 647 562 0213
+                </a>
+              </div>
+              <div className="flex items-center gap-3 text-sm">
+                <Mail className="h-5 w-5 text-black shrink-0" />
+                <a href="mailto:kiaanatrading@gmail.com" className="hover:text-slate-700 transition-colors">
+                  kiaanatrading@gmail.com
+                </a>
+              </div>
             </div>
+
 
             {/* Social Media Circular Outlines */}
             <div className="flex space-x-3 pt-3">
               <a
-                href="https://www.linkedin.com/in/ramaraju-umadevi-09b6331b8/"
+                href=""
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-black hover:text-slate-700 hover:border-slate-700 transition-colors p-2 rounded-full border border-black/60 flex items-center justify-center"

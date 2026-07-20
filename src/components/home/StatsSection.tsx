@@ -6,17 +6,17 @@ import { Award, Globe, Handshake } from "lucide-react";
 export default function StatsSection() {
   const stats = [
     {
-      value: "30+",
+      value: "10+",
       label: "Years Experience in the metal industry",
       icon: <Award className="h-7 w-7 transition-transform duration-300" />,
     },
     {
-      value: "1200+",
+      value: "200+",
       label: "Users worldwide",
       icon: <Globe className="h-7 w-7 transition-transform duration-300" />,
     },
     {
-      value: "2000+",
+      value: "500+",
       label: "Transactions completed",
       icon: <Handshake className="h-7 w-7 transition-transform duration-300" />,
     },
@@ -29,7 +29,7 @@ export default function StatsSection() {
         className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-[0.07] mix-blend-luminosity scale-105 pointer-events-none"
         style={{ backgroundImage: `url('https://lohaa.co.in/assets/images/bg_image.jpg')` }}
       />
-      
+
       {/* Light gradient blobs */}
       <div className="absolute -top-40 -left-40 w-96 h-96 bg-brand-teal/5 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute -bottom-40 -right-40 w-96 h-96 bg-brand-orange/5 rounded-full blur-3xl pointer-events-none" />
@@ -55,7 +55,7 @@ export default function StatsSection() {
             >
               {/* Inner subtle color sweep */}
               <div className="absolute inset-0 bg-gradient-to-br from-brand-teal/[0.02] via-transparent to-brand-orange/[0.02] opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
-              
+
               {/* Icon Container */}
               <div className="mb-6 p-4 rounded-2xl bg-slate-100 border border-slate-200/40 text-brand-teal group-hover:text-brand-orange group-hover:bg-brand-orange/10 group-hover:border-brand-orange/20 transition-all duration-300">
                 {stat.icon}
@@ -66,7 +66,7 @@ export default function StatsSection() {
                 <span className="text-5xl md:text-6xl font-black tracking-tight mb-3 bg-gradient-to-r from-slate-900 to-slate-700 bg-clip-text text-transparent group-hover:from-slate-900 group-hover:to-brand-teal transition-all duration-300">
                   {stat.value}
                 </span>
-                
+
                 {/* Stat Label */}
                 <p className="text-sm md:text-base text-slate-500 font-semibold leading-relaxed max-w-[240px] mx-auto group-hover:text-slate-700 transition-colors duration-300">
                   {stat.label}
