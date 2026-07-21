@@ -16,7 +16,7 @@ export default function ServicesContent() {
     <div className="w-full bg-slate-50 text-slate-800 font-sans">
 
       {/* Hero Section (Warm neutral background, serif text) */}
-      <div className="relative bg-slate-100/80 py-20 md:py-32 flex flex-col items-center justify-center text-center overflow-hidden border-b border-slate-200">
+      <div className="relative bg-slate-100/80 py-8 md:py-24 flex flex-col items-center justify-center text-center overflow-hidden border-b border-slate-200">
 
         {/* Serif Heading Overlaid */}
         <div className="max-w-4xl mx-auto px-4 z-20 space-y-4">
@@ -31,17 +31,17 @@ export default function ServicesContent() {
               href="/contact"
               className="inline-block px-8 py-3.5 rounded-full bg-brand-orange hover:bg-brand-orange/90 text-slate-950 text-xs font-bold uppercase tracking-wider shadow-md hover:shadow-brand-orange/25 transition-all"
             >
-              Let's Talk →
+              Let&apos;s Talk →
             </Link>
           </div>
         </div>
       </div>
 
       {/* Intro Text Section */}
-      <div className="bg-white py-20 border-b border-slate-200 text-center px-4 sm:px-6">
+      <div className="bg-white py-8 md:py-16 border-b border-slate-200 text-center px-4 sm:px-6">
         <div className="max-w-3xl mx-auto space-y-6">
           <span className="text-[10px] md:text-xs font-bold uppercase tracking-[0.25em] text-brand-teal block">
-            We're not just another commodity desk
+            We&apos;re not just another commodity desk
           </span>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif font-light text-slate-900 leading-snug tracking-tight">
             We turn <span className="italic font-normal text-brand-teal">metal procurement</span> from a logistics bottleneck into your biggest <span className="italic font-normal text-brand-teal">competitive advantage</span>
@@ -53,7 +53,7 @@ export default function ServicesContent() {
       </div>
 
       {/* Services Section */}
-      <div className="py-24 space-y-32">
+      <div className="py-8 md:py-16 space-y-6 md:space-y-16">
         <div className="text-center space-y-3">
           <h2 className="text-3xl font-serif font-light tracking-[0.1em] text-slate-900 uppercase">
             Services
@@ -61,7 +61,7 @@ export default function ServicesContent() {
           <div className="w-12 h-[1px] bg-brand-teal mx-auto" />
         </div>
 
-        <div className="max-w-7xl mx-auto px-6 sm:px-8 space-y-32">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 space-y-10 md:space-y-28">
           {servicesData.services.map((service, idx) => {
             const isEven = idx % 2 === 1;
             const serviceImg = serviceImages[service.id] || "/scrap_metal.png";
@@ -69,22 +69,20 @@ export default function ServicesContent() {
             return (
               <div
                 key={service.id}
-                className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-center"
+                className="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-16 items-center"
               >
 
                 {/* Content Block */}
                 <div
-                  className={`lg:col-span-6 space-y-6 ${isEven ? "lg:order-2" : "lg:order-1"
+                  className={`lg:col-span-6 space-y-3 md:space-y-6 ${isEven ? "lg:order-2" : "lg:order-1"
                     }`}
                 >
-                  {/* Big elegant numeral */}
-                  <span className="text-6xl md:text-7xl font-serif font-light text-brand-light-orange select-none block leading-none">
-                    {idx + 1}.
-                  </span>
-
-                  {/* Service Title */}
-                  <div className="border-b border-slate-200 pb-3">
-                    <h3 className="text-2xl font-serif font-light text-slate-900 leading-tight">
+                  {/* Service Title & Numeral */}
+                  <div className="border-b border-slate-200 pb-2.5">
+                    <span className="text-4xl md:text-6xl font-serif font-light text-brand-light-orange select-none block leading-none mb-1">
+                      {idx + 1}.
+                    </span>
+                    <h3 className="text-xl sm:text-2xl font-serif font-light text-slate-900 leading-tight">
                       {service.title}
                     </h3>
                   </div>
@@ -122,7 +120,7 @@ export default function ServicesContent() {
                   className={`lg:col-span-6 flex justify-center ${isEven ? "lg:order-1" : "lg:order-2"
                     }`}
                 >
-                  <div className="bg-white p-4 pb-12 rounded-2xl border border-slate-200/60 shadow-[0_15px_30px_rgba(0,0,0,0.03)] max-w-sm w-full transition-transform duration-500 hover:rotate-1">
+                  <div className="bg-white p-3 pb-8 md:p-4 md:pb-10 rounded-2xl border border-slate-200/60 shadow-[0_15px_30px_rgba(0,0,0,0.03)] max-w-sm w-full transition-transform duration-500 hover:rotate-1">
                     <div className="overflow-hidden aspect-square rounded-xl">
                       <img
                         src={serviceImg}
@@ -140,8 +138,8 @@ export default function ServicesContent() {
       </div>
 
       {/* Portfolio Showcase section */}
-      <div className="bg-white py-24 border-t border-slate-200">
-        <div className="max-w-7xl mx-auto px-6 sm:px-8 space-y-12">
+      <div className="bg-white py-8 md:py-20 border-t border-slate-200">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 space-y-6 md:space-y-12">
 
           <div className="text-center space-y-2">
             <h3 className="text-2xl font-serif font-light text-slate-900">
@@ -152,7 +150,7 @@ export default function ServicesContent() {
             </span>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pt-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8 pt-4">
             {[
               { path: "/scrap_metal.png", title: "Heavy Metal Scrap Sorting" },
               { path: "/industrial_import.png", title: "Import Commodity Storage" },

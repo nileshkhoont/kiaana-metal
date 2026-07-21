@@ -75,17 +75,17 @@ export default function HeroSection() {
                 <p className="text-sm sm:text-base md:text-lg text-slate-350 text-slate-300 leading-relaxed max-w-2xl">
                   {slide.description}
                 </p>
-                <div className="flex flex-wrap gap-4 pt-2">
+                <div className="flex gap-2.5 sm:gap-4 pt-2 w-full max-w-md">
                   <Link
                     href="/contact"
-                    className="inline-flex items-center justify-center px-6 py-3 rounded-lg bg-brand-orange hover:bg-brand-orange/90 text-slate-950 font-bold tracking-wide transition-all shadow-md hover:shadow-brand-orange/25 group"
+                    className="flex-1 inline-flex items-center justify-center px-3 sm:px-6 py-2.5 sm:py-3 rounded-lg bg-brand-orange hover:bg-brand-orange/90 text-slate-950 text-xs sm:text-sm font-bold tracking-wide transition-all shadow-md hover:shadow-brand-orange/25 group whitespace-nowrap"
                   >
                     ENQUIRE NOW
-                    <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                    <ArrowRight className="ml-1 sm:ml-2 h-4 w-4 transition-transform group-hover:translate-x-1 shrink-0" />
                   </Link>
                   <a
                     href="#products"
-                    className="inline-flex items-center justify-center px-6 py-3 rounded-lg border border-slate-600 hover:border-brand-teal hover:text-brand-teal bg-slate-900/60 hover:bg-slate-800 text-slate-200 font-semibold tracking-wide transition-all"
+                    className="flex-1 inline-flex items-center justify-center px-3 sm:px-6 py-2.5 sm:py-3 rounded-lg border border-slate-600 hover:border-brand-teal hover:text-brand-teal bg-slate-900/60 hover:bg-slate-800 text-slate-200 text-xs sm:text-sm font-semibold tracking-wide transition-all whitespace-nowrap"
                   >
                     Explore Offerings
                   </a>
@@ -99,14 +99,14 @@ export default function HeroSection() {
       {/* Navigation Arrows */}
       <button
         onClick={prevSlide}
-        className="absolute left-4 top-1/2 -translate-y-1/2 z-30 p-2 rounded-full bg-slate-900/40 hover:bg-brand-orange hover:text-slate-950 border border-slate-700 hover:border-brand-orange transition-all text-white focus:outline-none"
+        className="absolute left-4 bottom-4 md:bottom-auto md:top-1/2 md:-translate-y-1/2 z-30 p-2 rounded-full bg-slate-900/40 hover:bg-brand-orange hover:text-slate-950 border border-slate-700 hover:border-brand-orange transition-all text-white focus:outline-none"
         aria-label="Previous Slide"
       >
         <ChevronLeft className="h-5 w-5 md:h-6 md:w-6" />
       </button>
       <button
         onClick={nextSlide}
-        className="absolute right-4 top-1/2 -translate-y-1/2 z-30 p-2 rounded-full bg-slate-900/40 hover:bg-brand-orange hover:text-slate-950 border border-slate-700 hover:border-brand-orange transition-all text-white focus:outline-none"
+        className="absolute right-4 bottom-4 md:bottom-auto md:top-1/2 md:-translate-y-1/2 z-30 p-2 rounded-full bg-slate-900/40 hover:bg-brand-orange hover:text-slate-950 border border-slate-700 hover:border-brand-orange transition-all text-white focus:outline-none"
         aria-label="Next Slide"
       >
         <ChevronRight className="h-5 w-5 md:h-6 md:w-6" />

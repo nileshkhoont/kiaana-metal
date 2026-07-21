@@ -146,8 +146,9 @@ export default function Footer() {
       </div>
 
       {/* Lower Copyright Strip */}
-      <div className="bg-[#1b7e95] py-4 text-center text-xs text-cyan-100/80 border-t border-cyan-500/10">
-        <p>Kiaana Metal Trading Inc. &copy; All Rights Reserved – 2026</p>
+      <div className="flex justify-around bg-[#1b7e95] py-4 text-center text-xs text-cyan-100/80 border-t border-cyan-500/10">
+        <p>Developed and crafted by <a href="https://www.movya.com" target="_blank" rel="noopener noreferrer" className="font-bold">Movya</a></p>
+        <p>Kiaana Metal Trading Inc. &copy; All Rights Reserved – 2026 </p>
       </div>
     </footer>
   );

@@ -4,7 +4,7 @@ import { aboutData } from "@/data/aboutData";
 export default function AboutContent() {
   return (
     <div className="w-full bg-slate-50 text-slate-800 pt-4 pb-16 md:pt-6 md:pb-24 font-sans overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 space-y-16">
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 space-y-10 md:space-y-16">
 
         {/* Top Breadcrumb/Nav Element */}
         {/* <div className="text-center">
@@ -14,7 +14,7 @@ export default function AboutContent() {
         </div> */}
 
         {/* Section 1: Clean Editorial Text Hero (No Image) */}
-        <div className="max-w-3xl mx-auto pt-4 pb-12 md:pt-6 md:pb-16 space-y-8 flex flex-col justify-center">
+        <div className="max-w-3xl mx-auto pt-4 pb-0 md:pt-6 md:pb-8 space-y-8 flex flex-col justify-center">
           <div className="space-y-3 text-center">
             <span className="text-xs font-bold tracking-[0.25em] text-brand-teal uppercase block">
               Who We Are
@@ -23,7 +23,7 @@ export default function AboutContent() {
               about us.
             </h1>
           </div>
-          
+
           <div className="w-full h-[1px] bg-slate-300/80" />
 
           <div className="space-y-6 text-slate-655 text-base md:text-lg leading-relaxed text-slate-600 font-light text-center">
@@ -41,17 +41,17 @@ export default function AboutContent() {
           <div className="w-full h-[1px] bg-slate-300/80" />
 
           {/* Bottom Accent Words */}
-          <div className="flex flex-wrap items-center justify-center gap-4 text-xs font-bold tracking-[0.2em] text-slate-400 uppercase">
+          <div className="flex items-center justify-center gap-1.5 sm:gap-4 text-[9px] min-[360px]:text-[10px] sm:text-xs font-bold tracking-[0.12em] sm:tracking-[0.2em] text-slate-400 uppercase whitespace-nowrap">
             <span>Metals</span>
-            <span className="text-brand-orange">✦</span>
+            <span className="text-brand-orange shrink-0">✦</span>
             <span>Strategy</span>
-            <span className="text-brand-orange">✦</span>
+            <span className="text-brand-orange shrink-0">✦</span>
             <span>Sustainability</span>
           </div>
         </div>
 
         {/* Section 3: Curved Timeline (Desktop) & Stacked List (Mobile) */}
-        <div className="relative pt-16 border-t border-slate-200/60">
+        <div className="relative pt-6 md:pt-12 border-t border-slate-200/60">
 
           {/* Desktop Curved S-Curve Timeline */}
           <div className="relative hidden lg:block h-[1800px] w-full">
