@@ -39,7 +39,7 @@ export default function ContactContent() {
           backgroundImage: `linear-gradient(rgba(15, 23, 42, 0.65), rgba(15, 23, 42, 0.65)), url('/industrial_import.png')`
         }}
       >
-        <div className="max-w-4xl mx-auto space-y-6 z-10 text-white">
+        <div className="max-w-4xl mx-auto space-y-8 pb-6 md:pb-12 z-10 text-white">
           <h1 className="text-3xl sm:text-5xl lg:text-6xl font-serif font-light leading-tight tracking-tight max-w-3xl mx-auto">
             Ready to secure, optimize, and scale your supply chain?
           </h1>
@@ -67,45 +67,44 @@ export default function ContactContent() {
 
           <form onSubmit={handleFormSubmit} className="space-y-8">
 
-            {/* Name fields */}
-            <div className="space-y-2">
-              <label className="text-[11px] font-bold text-slate-400 uppercase tracking-wider block">
-                Name <span className="text-red-500">*</span>
+            {/* First Name field */}
+            <div className="space-y-1">
+              <label htmlFor="firstName" className="text-[11px] font-bold text-slate-400 uppercase tracking-wider block">
+                First Name <span className="text-red-500">*</span>
               </label>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                <div>
-                  <input
-                    type="text"
-                    id="firstName"
-                    name="firstName"
-                    required
-                    className="w-full bg-transparent border-b border-slate-200 focus:border-brand-teal focus:outline-none py-2 text-slate-900 placeholder-slate-300 text-sm font-light transition-colors"
-                  />
-                  <ValidationError
-                    prefix="First Name"
-                    field="firstName"
-                    errors={state.errors}
-                    className="text-red-500 text-[10px] mt-1 block"
-                  />
-                  <span className="text-[10px] text-slate-400 font-light mt-1 block">First Name</span>
-                </div>
-                <div>
-                  <input
-                    type="text"
-                    id="lastName"
-                    name="lastName"
-                    required
-                    className="w-full bg-transparent border-b border-slate-200 focus:border-brand-teal focus:outline-none py-2 text-slate-900 placeholder-slate-300 text-sm font-light transition-colors"
-                  />
-                  <ValidationError
-                    prefix="Last Name"
-                    field="lastName"
-                    errors={state.errors}
-                    className="text-red-500 text-[10px] mt-1 block"
-                  />
-                  <span className="text-[10px] text-slate-400 font-light mt-1 block">Last Name</span>
-                </div>
-              </div>
+              <input
+                type="text"
+                id="firstName"
+                name="firstName"
+                required
+                className="w-full bg-transparent border-b border-slate-200 focus:border-brand-teal focus:outline-none py-2 text-slate-900 placeholder-slate-300 text-sm font-light transition-colors"
+              />
+              <ValidationError
+                prefix="First Name"
+                field="firstName"
+                errors={state.errors}
+                className="text-red-500 text-[10px] mt-1 block"
+              />
+            </div>
+
+            {/* Last Name field */}
+            <div className="space-y-1">
+              <label htmlFor="lastName" className="text-[11px] font-bold text-slate-400 uppercase tracking-wider block">
+                Last Name <span className="text-red-500">*</span>
+              </label>
+              <input
+                type="text"
+                id="lastName"
+                name="lastName"
+                required
+                className="w-full bg-transparent border-b border-slate-200 focus:border-brand-teal focus:outline-none py-2 text-slate-900 placeholder-slate-300 text-sm font-light transition-colors"
+              />
+              <ValidationError
+                prefix="Last Name"
+                field="lastName"
+                errors={state.errors}
+                className="text-red-500 text-[10px] mt-1 block"
+              />
             </div>
 
             {/* Email field */}
