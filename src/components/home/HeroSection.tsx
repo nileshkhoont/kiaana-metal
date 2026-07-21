@@ -99,26 +99,26 @@ export default function HeroSection() {
       {/* Navigation Arrows */}
       <button
         onClick={prevSlide}
-        className="absolute left-4 bottom-4 md:bottom-auto md:top-1/2 md:-translate-y-1/2 z-30 p-2 rounded-full bg-slate-900/40 hover:bg-brand-orange hover:text-slate-950 border border-slate-700 hover:border-brand-orange transition-all text-white focus:outline-none"
+        className="absolute left-4 bottom-4 md:bottom-auto md:top-1/2 md:-translate-y-1/2 z-40 p-2 rounded-full bg-slate-900/40 hover:bg-brand-orange hover:text-slate-950 border border-slate-700 hover:border-brand-orange transition-all text-white focus:outline-none"
         aria-label="Previous Slide"
       >
         <ChevronLeft className="h-5 w-5 md:h-6 md:w-6" />
       </button>
       <button
         onClick={nextSlide}
-        className="absolute right-4 bottom-4 md:bottom-auto md:top-1/2 md:-translate-y-1/2 z-30 p-2 rounded-full bg-slate-900/40 hover:bg-brand-orange hover:text-slate-950 border border-slate-700 hover:border-brand-orange transition-all text-white focus:outline-none"
+        className="absolute right-4 bottom-4 md:bottom-auto md:top-1/2 md:-translate-y-1/2 z-40 p-2 rounded-full bg-slate-900/40 hover:bg-brand-orange hover:text-slate-950 border border-slate-700 hover:border-brand-orange transition-all text-white focus:outline-none"
         aria-label="Next Slide"
       >
         <ChevronRight className="h-5 w-5 md:h-6 md:w-6" />
       </button>
 
       {/* Dot Indicators */}
-      <div className="absolute bottom-6 left-0 right-0 z-30 flex justify-center space-x-2">
+      <div className="absolute bottom-6 left-0 right-0 z-30 flex justify-center space-x-2 pointer-events-none">
         {slides.map((_, idx) => (
           <button
             key={idx}
             onClick={() => setCurrent(idx)}
-            className={`w-3.5 h-3.5 rounded-full border transition-all ${idx === current
+            className={`w-3.5 h-3.5 rounded-full border transition-all pointer-events-auto ${idx === current
               ? "bg-brand-orange border-brand-orange scale-110"
               : "bg-slate-900/60 border-slate-600 hover:border-slate-400"
               }`}
