@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { servicesData } from "@/data/servicesData";
 import { CheckCircle2, Sparkles, ArrowRight, ShieldCheck, Award, Globe, Factory } from "lucide-react";
@@ -23,9 +24,9 @@ export default function ServicesContent() {
   ];
 
   return (
-    <div className="w-full bg-slate-50 text-slate-900 font-sans select-none overflow-hidden">
+    <div className="w-full bg-slate-50 text-slate-900 font-sans select-none overflow-hidden transform-gpu">
 
-      {/* 1. HERO SECTION - Ultra-Clean High Fashion Light Theme */}
+      {/* 1. HERO SECTION */}
       <div className="relative bg-gradient-to-b from-white via-slate-50 to-slate-100 py-16 md:py-24 flex flex-col items-center justify-center text-center border-b border-slate-200">
         
         {/* Soft Ambient Glow Blobs */}
@@ -70,7 +71,7 @@ export default function ServicesContent() {
                   key={idx}
                   initial={{ opacity: 0, y: 15 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: false, amount: 0.3 }}
+                  viewport={{ once: true, amount: 0.3 }}
                   transition={{ duration: 0.4, delay: idx * 0.1 }}
                   className="p-4 rounded-2xl bg-slate-50 border border-slate-200/80 flex items-center gap-3.5 hover:border-amber-400 transition-colors shadow-sm"
                 >
@@ -121,10 +122,10 @@ export default function ServicesContent() {
             return (
               <motion.div
                 key={service.id}
-                initial={{ opacity: 0, y: 40 }}
+                initial={{ opacity: 0, y: 35 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: false, amount: 0.2 }}
-                transition={{ duration: 0.7, ease: [0.25, 1, 0.5, 1] }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ duration: 0.6, ease: [0.25, 1, 0.5, 1] }}
                 className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center"
               >
 
@@ -170,7 +171,7 @@ export default function ServicesContent() {
                   </div>
                 </div>
 
-                {/* Right/Left Image Frame Block */}
+                {/* Right/Left Image Frame Block with Next.js Image Optimization */}
                 <div
                   className={`lg:col-span-6 flex justify-center ${
                     isEven ? "lg:order-1" : "lg:order-2"
@@ -178,14 +179,18 @@ export default function ServicesContent() {
                 >
                   <div className="bg-white p-3.5 rounded-3xl border border-slate-200 shadow-[0_20px_50px_rgba(0,0,0,0.08)] max-w-md w-full transition-all duration-500 hover:scale-[1.02] metallic-border-beam group relative">
                     <div className="overflow-hidden aspect-[4/3] rounded-2xl relative">
-                      <img
+                      <Image
                         src={serviceImg}
                         alt={service.title}
-                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                        fill
+                        sizes="(max-width: 768px) 100vw, 50vw"
+                        quality={80}
+                        loading="lazy"
+                        className="object-cover transition-transform duration-700 group-hover:scale-105"
                       />
                       
                       {/* Floating Assay Badge Overlay */}
-                      <div className="absolute bottom-3 left-3 right-3 p-3 rounded-xl bg-white/95 backdrop-blur-md border border-slate-200 text-[10px] font-bold text-slate-900 flex items-center justify-between shadow-lg">
+                      <div className="absolute bottom-3 left-3 right-3 p-3 rounded-xl bg-white/95 backdrop-blur-md border border-slate-200 text-[10px] font-bold text-slate-900 flex items-center justify-between shadow-lg z-10">
                         <span className="flex items-center gap-1.5 uppercase tracking-wider font-mono text-slate-900">
                           <ShieldCheck className="w-4 h-4 text-amber-600" /> SGS / Intertek Sampled
                         </span>

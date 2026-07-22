@@ -2,12 +2,13 @@
 
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Mail, Linkedin, Youtube, Instagram, Phone, MapPin, ArrowUpRight, Sparkles } from "lucide-react";
 import { ScrollRevealSection } from "@/components/common/WordAnimation";
 
 export default function Footer() {
   return (
-    <footer className="relative bg-[#111622] text-white border-t border-slate-800 mt-auto overflow-hidden select-none">
+    <footer className="relative bg-[#111622] text-white border-t border-slate-800 mt-auto overflow-hidden select-none transform-gpu">
       
       {/* Dynamic Metallic Glow Effect */}
       <div className="absolute top-0 left-1/4 w-96 h-96 bg-[#F4B400]/10 rounded-full blur-[150px] pointer-events-none" />
@@ -21,7 +22,7 @@ export default function Footer() {
           <div className="md:col-span-5 space-y-6">
             <Link href="/" className="inline-flex items-center gap-3 group">
               <div className="relative flex items-center justify-center w-14 h-14 shrink-0 group-hover:scale-105 transition-transform duration-300 p-1.5 bg-white/10 rounded-2xl border border-white/15 backdrop-blur-md shadow-md">
-                <img src="/logo.png" alt="Kiaana Logo" className="w-full h-full object-contain" />
+                <Image src="/logo.png" alt="Kiaana Logo" width={56} height={56} quality={80} loading="lazy" className="w-full h-full object-contain" />
               </div>
               <div className="flex flex-col">
                 <span className="text-3xl font-black tracking-wider text-white font-display group-hover:text-[#F4B400] transition-colors">
