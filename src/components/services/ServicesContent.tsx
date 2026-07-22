@@ -1,10 +1,13 @@
+"use client";
+
 import React from "react";
+import { motion } from "framer-motion";
 import { servicesData } from "@/data/servicesData";
-import { Check } from "lucide-react";
+import { CheckCircle2, Sparkles, ArrowRight, ShieldCheck, Award, Globe, Factory } from "lucide-react";
 import Link from "next/link";
+import { RotatingWord, StaggerWords, ScrollRevealSection } from "@/components/common/WordAnimation";
 
 export default function ServicesContent() {
-  // Map service IDs to their specific image paths
   const serviceImages: Record<string, string> = {
     "bulk-metal-supply": "/scrap_metal.png",
     "scrap-metal-recovery": "/recycling_plant.png",
@@ -12,165 +15,191 @@ export default function ServicesContent() {
     "global-logistics-freight": "/logistics_vessel.png",
   };
 
+  const serviceMetrics = [
+    { title: "Physical Supply", value: "100% Verified", icon: Factory },
+    { title: "Assay Reports", value: "SGS Certified", icon: Award },
+    { title: "Export Logistics", value: "120+ Ports", icon: Globe },
+    { title: "Trade Standards", value: "ISRI Approved", icon: ShieldCheck },
+  ];
+
   return (
-    <div className="w-full bg-slate-50 text-slate-800 font-sans">
+    <div className="w-full bg-slate-50 text-slate-900 font-sans select-none overflow-hidden">
 
-      {/* Hero Section (Warm neutral background, serif text) */}
-      <div className="relative bg-slate-100/80 py-8 md:py-24 flex flex-col items-center justify-center text-center overflow-hidden border-b border-slate-200">
+      {/* 1. HERO SECTION - Ultra-Clean High Fashion Light Theme */}
+      <div className="relative bg-gradient-to-b from-white via-slate-50 to-slate-100 py-16 md:py-24 flex flex-col items-center justify-center text-center border-b border-slate-200">
+        
+        {/* Soft Ambient Glow Blobs */}
+        <div className="absolute top-1/2 left-1/4 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-amber-500/5 rounded-full blur-[140px] pointer-events-none" />
+        <div className="absolute top-1/2 right-1/4 translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-sky-500/5 rounded-full blur-[140px] pointer-events-none" />
 
-        {/* Serif Heading Overlaid */}
-        <div className="max-w-4xl mx-auto px-4 z-20 space-y-4">
-          <h1 className="text-4xl sm:text-6xl md:text-7xl font-serif font-light tracking-tight text-slate-900 leading-tight">
-            Industrial Metal Supply & Trade
+        <ScrollRevealSection className="max-w-4xl mx-auto px-4 z-20 space-y-6">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-amber-300/80 text-amber-700 text-xs font-black uppercase tracking-widest mx-auto shadow-sm">
+            <Sparkles className="h-3.5 w-3.5 text-amber-600 animate-pulse" />
+            <span>COMMODITY TRADE SERVICES & LOGISTICS</span>
+          </div>
+
+          <h1 className="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight text-slate-950 leading-tight font-display inline-flex flex-wrap items-baseline justify-center gap-x-3 w-full">
+            <span>Industrial Metal Supply &</span>
+            <RotatingWord words={["Trade Logistics", "Scrap Recovery", "Import Solutions"]} className="font-serif-accent text-amber-600 font-normal" />
           </h1>
-          <p className="text-xs uppercase tracking-[0.3em] font-mono text-brand-teal">
-            Scale your supply chain with quality commodities
+
+          <p className="text-xs sm:text-sm uppercase tracking-[0.25em] font-mono text-slate-600 max-w-xl mx-auto">
+            Scale your supply chain with certified raw commodities & international ocean freight execution
           </p>
-          <div className="pt-4">
+
+          <div className="pt-4 flex flex-wrap items-center justify-center gap-4">
             <Link
               href="/contact"
-              className="inline-block px-8 py-3.5 rounded-full bg-brand-orange hover:bg-brand-orange/90 text-slate-950 text-xs font-bold uppercase tracking-wider shadow-md hover:shadow-brand-orange/25 transition-all"
+              className="inline-flex items-center justify-center px-8 py-4 rounded-xl bg-gradient-to-r from-amber-500 via-amber-400 to-amber-500 hover:from-amber-600 hover:to-amber-500 text-slate-950 text-xs font-black uppercase tracking-[0.2em] shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5"
             >
-              Let&apos;s Talk →
+              <span>Get Custom Quotation</span>
+              <ArrowRight className="ml-2 h-4 w-4" />
             </Link>
+          </div>
+        </ScrollRevealSection>
+      </div>
+
+      {/* 2. METRICS DISPLAY STRIP */}
+      <div className="bg-white py-8 border-b border-slate-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
+            {serviceMetrics.map((m, idx) => {
+              const Icon = m.icon;
+              return (
+                <motion.div
+                  key={idx}
+                  initial={{ opacity: 0, y: 15 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: false, amount: 0.3 }}
+                  transition={{ duration: 0.4, delay: idx * 0.1 }}
+                  className="p-4 rounded-2xl bg-slate-50 border border-slate-200/80 flex items-center gap-3.5 hover:border-amber-400 transition-colors shadow-sm"
+                >
+                  <div className="p-2.5 rounded-xl bg-white text-amber-600 border border-slate-200 shrink-0">
+                    <Icon className="h-5 w-5" />
+                  </div>
+                  <div>
+                    <span className="text-[10px] font-bold text-slate-500 uppercase tracking-wider block">{m.title}</span>
+                    <span className="text-sm font-black text-slate-900 font-mono">{m.value}</span>
+                  </div>
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </div>
 
-      {/* Intro Text Section */}
-      <div className="bg-white py-8 md:py-16 border-b border-slate-200 text-center px-4 sm:px-6">
-        <div className="max-w-3xl mx-auto space-y-6">
-          <span className="text-[10px] md:text-xs font-bold uppercase tracking-[0.25em] text-brand-teal block">
-            We&apos;re not just another commodity desk
-          </span>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif font-light text-slate-900 leading-snug tracking-tight">
-            We turn <span className="italic font-normal text-brand-teal">metal procurement</span> from a logistics bottleneck into your biggest <span className="italic font-normal text-brand-teal">competitive advantage</span>
+      {/* 3. EDITORIAL INTRO BANNER */}
+      <div className="bg-gradient-to-b from-white to-slate-50 py-14 md:py-20 border-b border-slate-200 text-center px-4 sm:px-6">
+        <ScrollRevealSection className="max-w-3xl mx-auto space-y-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-slate-950 leading-snug tracking-tight">
+            We turn <span className="font-serif-accent text-amber-600 italic">metal procurement</span> from a logistics bottleneck into your biggest <span className="font-serif-accent text-amber-600 italic">competitive advantage</span>
           </h2>
-          <p className="text-slate-500 text-sm leading-relaxed max-w-xl mx-auto font-light">
-            We understand that behind every shipment, grade test, and custom clearance is an industrial operation waiting to produce. We connect you seamlessly.
+          <p className="text-slate-600 text-sm sm:text-base leading-relaxed max-w-xl mx-auto font-light">
+            We understand that behind every container shipment, grade assay test, and customs clearance is an industrial operation waiting to produce.
           </p>
-        </div>
+        </ScrollRevealSection>
       </div>
 
-      {/* Services Section */}
-      <div className="py-8 md:py-16 space-y-6 md:space-y-16">
-        <div className="text-center space-y-3">
-          <h2 className="text-3xl font-serif font-light tracking-[0.1em] text-slate-900 uppercase">
-            Services
-          </h2>
-          <div className="w-12 h-[1px] bg-brand-teal mx-auto" />
-        </div>
+      {/* 4. MAIN SERVICES CATALOG SHOWCASE */}
+      <div className="py-20 space-y-20">
+        <ScrollRevealSection className="text-center space-y-3">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-amber-50 border border-amber-300 text-amber-800 text-xs font-black uppercase tracking-widest mx-auto">
+            <span>OUR CORE OPERATIONAL PILLARS</span>
+          </div>
 
-        <div className="max-w-7xl mx-auto px-6 sm:px-8 space-y-10 md:space-y-28">
+          <h2 className="text-3xl sm:text-4xl font-black text-slate-950 uppercase tracking-wider font-display">
+            <StaggerWords text="Comprehensive Metal Trading Solutions" className="justify-center text-center" />
+          </h2>
+          <div className="w-20 h-1 bg-gradient-to-r from-amber-500 via-amber-400 to-amber-500 mx-auto rounded-full mt-2" />
+        </ScrollRevealSection>
+
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 space-y-20 lg:space-y-28">
           {servicesData.services.map((service, idx) => {
             const isEven = idx % 2 === 1;
             const serviceImg = serviceImages[service.id] || "/scrap_metal.png";
 
             return (
-              <div
+              <motion.div
                 key={service.id}
-                className="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-16 items-center"
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: false, amount: 0.2 }}
+                transition={{ duration: 0.7, ease: [0.25, 1, 0.5, 1] }}
+                className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center"
               >
 
-                {/* Content Block */}
+                {/* Left/Right Content Block */}
                 <div
-                  className={`lg:col-span-6 space-y-3 md:space-y-6 ${isEven ? "lg:order-2" : "lg:order-1"
-                    }`}
+                  className={`lg:col-span-6 space-y-6 ${
+                    isEven ? "lg:order-2" : "lg:order-1"
+                  }`}
                 >
-                  {/* Service Title & Numeral */}
-                  <div className="border-b border-slate-200 pb-2.5">
-                    <span className="text-4xl md:text-6xl font-serif font-light text-brand-light-orange select-none block leading-none mb-1">
-                      {idx + 1}.
+                  <div className="border-b border-slate-200 pb-4 relative">
+                    <span className="text-4xl md:text-5xl font-black text-amber-500/30 select-none block leading-none mb-2 font-mono">
+                      0{idx + 1}.
                     </span>
-                    <h3 className="text-xl sm:text-2xl font-serif font-light text-slate-900 leading-tight">
+                    <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-950 leading-tight">
                       {service.title}
                     </h3>
                   </div>
 
-                  <p className="text-slate-600 text-sm leading-relaxed font-light">
+                  <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-light">
                     {service.description}
                   </p>
 
-                  {/* Checklist */}
-                  <ul className="space-y-2.5 pt-2">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
                     {service.features.map((feature, fIdx) => (
-                      <li
+                      <div
                         key={fIdx}
-                        className="flex items-start gap-2.5 text-xs text-slate-600 font-light"
+                        className="flex items-start gap-2.5 text-xs sm:text-sm text-slate-800 font-medium p-3 rounded-2xl bg-white border border-slate-200 shadow-sm hover:border-amber-400 transition-colors"
                       >
-                        <Check className="h-3.5 w-3.5 text-brand-teal shrink-0 mt-0.5" />
+                        <CheckCircle2 className="h-4 w-4 text-amber-600 shrink-0 mt-0.5" />
                         <span>{feature}</span>
-                      </li>
+                      </div>
                     ))}
-                  </ul>
+                  </div>
 
-                  {/* CTA Buttons */}
-                  <div className="flex flex-wrap gap-4 pt-4">
+                  <div className="pt-4">
                     <Link
                       href="/contact"
-                      className="px-5 py-3 rounded-lg bg-brand-orange hover:bg-brand-orange/90 text-slate-950 text-[10px] font-bold uppercase tracking-wider transition-all shadow-md hover:shadow-brand-orange/20"
+                      className="inline-flex items-center justify-center px-7 py-3.5 rounded-xl bg-gradient-to-r from-amber-500 via-amber-400 to-amber-500 hover:from-amber-600 hover:to-amber-500 text-slate-950 text-xs font-black uppercase tracking-widest transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-0.5 group"
                     >
-                      Request Quote ›
+                      <span>Request Service Specifications</span>
+                      <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                     </Link>
                   </div>
                 </div>
 
-                {/* Polaroid-Style Image Block */}
+                {/* Right/Left Image Frame Block */}
                 <div
-                  className={`lg:col-span-6 flex justify-center ${isEven ? "lg:order-1" : "lg:order-2"
-                    }`}
+                  className={`lg:col-span-6 flex justify-center ${
+                    isEven ? "lg:order-1" : "lg:order-2"
+                  }`}
                 >
-                  <div className="bg-white p-3 pb-8 md:p-4 md:pb-10 rounded-2xl border border-slate-200/60 shadow-[0_15px_30px_rgba(0,0,0,0.03)] max-w-sm w-full transition-transform duration-500 hover:rotate-1">
-                    <div className="overflow-hidden aspect-square rounded-xl">
+                  <div className="bg-white p-3.5 rounded-3xl border border-slate-200 shadow-[0_20px_50px_rgba(0,0,0,0.08)] max-w-md w-full transition-all duration-500 hover:scale-[1.02] metallic-border-beam group relative">
+                    <div className="overflow-hidden aspect-[4/3] rounded-2xl relative">
                       <img
                         src={serviceImg}
                         alt={service.title}
-                        className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                       />
+                      
+                      {/* Floating Assay Badge Overlay */}
+                      <div className="absolute bottom-3 left-3 right-3 p-3 rounded-xl bg-white/95 backdrop-blur-md border border-slate-200 text-[10px] font-bold text-slate-900 flex items-center justify-between shadow-lg">
+                        <span className="flex items-center gap-1.5 uppercase tracking-wider font-mono text-slate-900">
+                          <ShieldCheck className="w-4 h-4 text-amber-600" /> SGS / Intertek Sampled
+                        </span>
+                        <span className="font-mono text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200 font-bold">
+                          100% Physical Supply
+                        </span>
+                      </div>
                     </div>
                   </div>
                 </div>
 
-              </div>
+              </motion.div>
             );
           })}
-        </div>
-      </div>
-
-      {/* Portfolio Showcase section */}
-      <div className="bg-white py-8 md:py-20 border-t border-slate-200">
-        <div className="max-w-7xl mx-auto px-6 sm:px-8 space-y-6 md:space-y-12">
-
-          <div className="text-center space-y-2">
-            <h3 className="text-2xl font-serif font-light text-slate-900">
-              Real Results for Real Businesses
-            </h3>
-            <span className="text-[10px] uppercase tracking-[0.25em] text-brand-teal block">
-              Portfolio Showcase
-            </span>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8 pt-4">
-            {[
-              { path: "/scrap_metal.png", title: "Heavy Metal Scrap Sorting" },
-              { path: "/industrial_import.png", title: "Import Commodity Storage" },
-              { path: "/logistics_vessel.png", title: "Global Vessel Cargo Clearing" }
-            ].map((port, pIdx) => (
-              <div key={pIdx} className="group overflow-hidden rounded-2xl bg-slate-50 p-3 border border-slate-200/60 hover:shadow-md transition-all duration-300">
-                <div className="aspect-[4/3] overflow-hidden rounded-xl">
-                  <img
-                    src={port.path}
-                    alt={port.title}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-                </div>
-                <h4 className="text-xs font-serif font-light text-slate-800 pt-3 text-center">
-                  {port.title}
-                </h4>
-              </div>
-            ))}
-          </div>
-
         </div>
       </div>
 
