@@ -3,23 +3,21 @@
 import React, { useEffect } from "react";
 import { useForm, ValidationError } from "@formspree/react";
 import { useRouter } from "next/navigation";
+import { RotatingWord, StaggerWords } from "@/components/common/WordAnimation";
+import { Sparkles, Send } from "lucide-react";
 
 export default function ContactContent() {
   const router = useRouter();
 
-  // Connect to Formspree using the client-accessible environment key
-  // Fallback to a placeholder during build/prerender to prevent build errors
   const formKey = process.env.NEXT_PUBLIC_FORMSPREE_KEY || "missing-key";
   const [state, handleSubmit] = useForm(formKey);
 
-  // Redirect to custom thanks page upon successful submission
   useEffect(() => {
     if (state.succeeded) {
       router.push("/thanks");
     }
   }, [state.succeeded, router]);
 
-  // Intercept submit to prevent submission and warn if Formspree key is missing
   const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     if (!process.env.NEXT_PUBLIC_FORMSPREE_KEY) {
       e.preventDefault();
@@ -30,42 +28,45 @@ export default function ContactContent() {
   };
 
   return (
-    <div className="w-full bg-slate-50 text-slate-800 font-sans overflow-hidden">
+    <div className="w-full bg-slate-50 text-slate-900 font-sans overflow-hidden select-none">
 
-      {/* 1. Hero Section (Image background with text overlay) */}
+      {/* 1. Hero Section */}
       <div
-        className="relative min-h-[500px] flex items-center justify-center text-center px-4 py-20 bg-cover bg-center bg-no-repeat"
+        className="relative min-h-[480px] flex items-center justify-center text-center px-4 py-20 bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: `linear-gradient(rgba(15, 23, 42, 0.65), rgba(15, 23, 42, 0.65)), url('/industrial_import.png')`
+          backgroundImage: `linear-gradient(rgba(15, 23, 42, 0.75), rgba(15, 23, 42, 0.75)), url('/industrial_import.png')`
         }}
       >
-        <div className="max-w-4xl mx-auto space-y-8 pb-6 md:pb-12 z-10 text-white">
-          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-serif font-light leading-tight tracking-tight max-w-3xl mx-auto">
-            Ready to secure, optimize, and scale your supply chain?
+        <div className="max-w-4xl mx-auto space-y-6 pb-6 md:pb-12 z-10 text-white">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-amber-400 text-xs font-black uppercase tracking-widest mx-auto">
+            <Sparkles className="h-3.5 w-3.5 text-amber-400 animate-pulse" />
+            <span>DIRECT SALES & COMMODITY DESK</span>
+          </div>
+
+          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight max-w-3xl mx-auto font-display">
+            Ready to secure, optimize, and scale your <RotatingWord words={["Supply Chain?", "Metal Tonnage?", "Export Orders?"]} className="font-serif-accent text-amber-400 font-normal" />
           </h1>
-          <p className="text-xs sm:text-sm font-mono tracking-[0.25em] text-brand-orange uppercase">
-            (METAL RECYCLING, TRADING & LOGISTICS)
-          </p>
-          <p className="text-xs sm:text-sm text-slate-300 max-w-xl mx-auto font-light leading-relaxed">
+
+          <p className="text-xs sm:text-sm text-slate-200 max-w-xl mx-auto font-light leading-relaxed">
             Connect with our commodity specialists today to streamline your steel, aluminium, and copper procurement.
           </p>
         </div>
       </div>
 
-      {/* 2. Overlapping Inquire Here Form Card */}
-      <div className="max-w-2xl mx-auto px-4 relative z-20 -mt-24 md:-mt-28 mb-20">
-        <div className="bg-white p-8 md:p-12 shadow-[0_20px_50px_rgba(0,0,0,0.06)] border border-slate-100 rounded-sm">
+      {/* 2. Form Card */}
+      <div className="max-w-2xl mx-auto px-4 relative z-20 -mt-20 md:-mt-24 mb-20">
+        <div className="bg-white p-8 md:p-12 shadow-[0_20px_50px_rgba(0,0,0,0.06)] border border-slate-200 rounded-3xl metallic-border-beam">
 
           <div className="text-center space-y-3 mb-10">
-            <h2 className="text-3xl font-serif font-light text-slate-900">
-              Inquire Here
+            <h2 className="text-3xl font-extrabold text-slate-950 font-display">
+              <StaggerWords text="Inquire & Request Quotation" />
             </h2>
-            <p className="text-slate-500 text-xs leading-relaxed max-w-md mx-auto font-light">
-              Fill out the contact form below to inquire about our services. You can expect a response from us with next steps within 24 hours.
+            <p className="text-slate-600 text-xs leading-relaxed max-w-md mx-auto">
+              Fill out the contact form below to inquire about metal grades and container logistics. Expect a response within 24 hours.
             </p>
           </div>
 
-          <form onSubmit={handleFormSubmit} className="space-y-8">
+         <form onSubmit={handleFormSubmit} className="space-y-8">
 
             {/* First Name field */}
             <div className="space-y-1">
